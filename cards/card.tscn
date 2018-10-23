@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://cards/art/major_arcana.jpg" type="Texture" id=1]
+[ext_resource path="res://cards/card.gd" type="Script" id=2]
+
+[node name="card_art" type="Sprite" index="0"]
+
+position = Vector2( 1.30432, -1.92438 )
+texture = ExtResource( 1 )
+vframes = 23
+script = ExtResource( 2 )
+_sections_unfolded = [ "Animation" ]
+
+

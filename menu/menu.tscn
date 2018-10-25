@@ -156,6 +156,7 @@ align = 1
 [node name="card_art" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 79.2936, 287.452 )
+_sections_unfolded = [ "Animation", "Pause" ]
 
 [node name="card_art2" parent="." index="2" instance=ExtResource( 1 )]
 

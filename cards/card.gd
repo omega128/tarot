@@ -1,31 +1,30 @@
-extends Sprite
+extends Area2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var value = 1
-var flipped = true
 
 const BACK_FACE = 0
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	$".".frame = BACK_FACE
+var value = 1
+var flipped = true
 
 func flip():
 	if flipped:
-		$".".frame = value
+		$Sprite.frame = value
 		flipped = false
 	else:
-		$".".frame = BACK_FACE
+		$Sprite.frame = BACK_FACE
 		flipped = true
+		
+func _ready():
+	# Called when the node is added to the scene for the first time.
+	# Initialization here
+	$Sprite.frame = value # BACK_FACE
 
 func _input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton \
+	   and event.button_index == BUTTON_LEFT \
+	   and event.is_pressed():
 		flip()
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+		

@@ -2,7 +2,7 @@ extends Area2D
 
 # this is a list of strings naming all the placeholder objects in the order they should be
 # used in.
-export var positions = []
+export(Array) var positions
 
 # This store whether the current spread has been dealt or not.
 var cards_dealt = false
@@ -20,17 +20,15 @@ func _input_event(viewport, event, shape_idx):
 			pass
 
 func _deal():
-	# cycle through each position, and spawn a card on that position.
-	for pos in positions:
-		print ("Hello?!")
-		print ($pos.get_pos())
-		#var new_card = preload("res://cards/card.tscn")
-		
-		#$".".add_child(new_card)
-
-		#var dest = $pos.get_pos()
-		#new_card.set_pos(dest)
-		
+	
+		for placeholder in get_tree().get_nodes_in_group("placeholders"):
+			var new_card = preload("res://cards/card.tscn").instance()
+			
+			new_card.value = 2
+			new_card.position = placeholder.position
+			
+			$"..".add_child (new_card)
+			
 	
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

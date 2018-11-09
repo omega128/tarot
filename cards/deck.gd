@@ -15,22 +15,39 @@ func _ready():
 func _input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("ui_click"):
 		if not cards_dealt:
-			_deal()
-		else:
-			pass
+			# wipe out all cards before starting over
+			for x in get_tree().get_nodes_in_group("cards"):
+				x.queue_free()
+		
+		_deal()
 
 func _deal():
+	# generate all possible cards as an array
+	var the_deck = []
+	for x in range(1, 79):
+		the_deck.append(x)
 	
-		for placeholder in get_tree().get_nodes_in_group("placeholders"):
-			var new_card = preload("res://cards/card.tscn").instance()
-			
-			new_card.value = 2
-			new_card.position = placeholder.position
-			
-			$"..".add_child (new_card)
-			
+	# shuffle the deck
+	the_deck = _shuffleList(the_deck)	
+	# GODOT 3.1 will support this: the_deck.shuffle()
 	
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+	for placeholder in get_tree().get_nodes_in_group("placeholders"):
+		var new_card = preload("res://cards/card.tscn").instance()
+		
+		new_card.value = the_deck.pop_front()
+		new_card.position = placeholder.position
+		
+		$"..".add_child (new_card)
+
+
+
+func _shuffleList(list):
+    var shuffledList = []
+    var indexList = range(list.size())
+    for i in range(list.size()):
+        randomize()
+        var x = randi()%indexList.size()
+        shuffledList.append(list[x])
+        indexList.remove(x)
+        list.remove(x)
+    return shuffledList

@@ -39,10 +39,42 @@ editor_draw_drag_margin = false
 
 [node name="pl1" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 544.541, 383.576 )
+position = Vector2( 290.474, 347.587 )
 
 [node name="pl2" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 2068.57, 407.55 )
+position = Vector2( 597.669, 639.149 )
+
+[node name="pl3" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 549.447, 1239.24 )
+
+[node name="pl4" parent="." index="5" instance=ExtResource( 2 )]
+
+position = Vector2( -232.97, 354.257 )
+
+[node name="pl5" parent="." index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 1111.57, 353.677 )
+
+[node name="pl6" parent="." index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 540.188, -301.567 )
+
+[node name="pl7" parent="." index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 1875.13, 1246.34 )
+
+[node name="pl8" parent="." index="9" instance=ExtResource( 2 )]
+
+position = Vector2( 1885.4, 640.154 )
+
+[node name="pl9" parent="." index="10" instance=ExtResource( 2 )]
+
+position = Vector2( 1885.4, 54.5156 )
+
+[node name="pl10" parent="." index="11" instance=ExtResource( 2 )]
+
+position = Vector2( 1875.13, -500.3 )
 
 
